@@ -47,7 +47,6 @@ function App() {
             <p className='text-black'>雪</p>
           </div>
           <div className='flex flex-col gap-2'>
-            <img className='h-3 w-32' src="../public/images/Social.png" alt="" />
             <img src="./images/Social.png" alt="" />
             <button className='text-white bg-gradient-to-r from-orange-600 to-orange-500 rounded-md'>Donate ♡</button>
           </div>
