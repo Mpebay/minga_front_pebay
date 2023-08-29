@@ -7,7 +7,8 @@ export default function Body() {
   return (
     <div className="xs: w-full h-screen bg-fondoMobile bg-cover md:bg-none">
 
-      <Layout prop1="soy una propiedad">
+
+      <Layout>
         <Index/>
       </Layout>
 
@@ -16,3 +17,4 @@ export default function Body() {
 
   )
 }
+
