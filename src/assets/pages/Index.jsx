@@ -1,8 +1,6 @@
 import React from 'react'
 import ButtonWelcome from '../Components/ButtonWelcome'
 import Welcome from '../Components/Welcome'
-import ArrowLeft from '../Components/ArrowLeft'
-import ArrowRigth from '../Components/ArrowRigth'
 import Carousel from '../Components/Carousel'
 
 export default function Index() {

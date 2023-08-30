@@ -1,18 +1,41 @@
-import React from 'react'
-import ArrowLeft from './ArrowLeft'
-import ArrowRigth from './ArrowRigth'
+import React, { useEffect, useState } from 'react'
+import ArrowLeft from './ArrowLeft.jsx'
+import ArrowRigth from './ArrowRigth.jsx'
+import axios from 'axios'
 
-export default function Carousel() {
+const Carousel = () => {
+let [counter, setCounter] = useState(0)
+let [categories, setCategorias] = useState([])
+let url = 'https://minga-back-vyqy.onrender.com/categories'
+
+
+const prev = () => {
+  setCounter((prevCounter) => (prevCounter === 0 ? categories.length - 1 : prevCounter - 1));
+}
+const next = () => {
+  setCounter((prevCounter) => (prevCounter === categories.length - 1 ? 0 : prevCounter + 1));
+}
+function getData(){
+axios(url)
+.then(res=>setCategorias(res.data.categories))
+.catch((err)=>console.log(err.message))
+}
+useEffect(()=>{
+getData()
+}, [])
+
   return (
-    <div className="max-md:hidden md: my-5 w-10/12 h-56 bg-gradient-to-b from-orange-600 to-orange-500 flex items-center px-5 justify-between md:h-1/4">
-          <ArrowLeft/>
-          <img className="h-40 mb-10" src="./images/imagen-carr-1.png" alt="" />
-          <img className="h-40 mb-8" src="./images/imagen-carr-2.png" alt="" />
-          <div className='md:w-48 lg:w-96'>
-            <h4 className='text-white md:text-center lg:text-left'>Shonen:</h4>
-            <p className='text-white text-xs md:text-center lg:text-left'>Is the manga that is aimed at adolescent boys. They are series with large amounts of action, in which humorous situations often occur. The camaraderie between members of a collective or a combat team stands out.</p>
-          </div>
-          <ArrowRigth/>
-    </div>
+    <section className='hidden md:flex justify-around md:my-6 bg-pink-400 max-h-screen  m-8 rounded-md'>
+      <ArrowLeft left = {prev}/>
+      <img className='h-60 -mt-8' src={categories[counter]?.character_photo} alt="character_carousel" />
+      <img className='-mt-8 h-60 pb-4' src= {categories[counter]?.cover_photo} alt="poster_carousel" />
+      <div className='w-80 m-8 text-white'>
+        <h3 className='text-left flex'>{categories[counter]?.name}</h3>
+        <p className='text-left text-sm'>{categories[counter]?.description}</p>
+      </div>
+      <ArrowRigth right = {next} />
+    </section>
   )
 }
+
+export default Carousel

@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function ArrowLeft() {
+const ArrowLeft = (props) => {
   return (
-    <img className='w-5 h-5 p-1 bg-slate-200 rotate-180 rounded-lg cursor-pointer' src="../public/images/Vector (Stroke).png" alt="" />
+    <img onClick={props.left} className='w-5 h-5 bg-zinc-400 rounded-xl cursor-pointer ' src="./images/Vector1 (Stroke).png" alt="left_arrow" />
   )
 }
+
+
+
+export default ArrowLeft;

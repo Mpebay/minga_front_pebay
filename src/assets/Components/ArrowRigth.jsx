@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default function ArrowRigth() {
+const ArrowRight = (props) => {
   return (
-    <img className='w-5 h-5 p-1 bg-slate-200 rounded-lg cursor-pointer' src="../public/images/Vector (Stroke).png" alt="" />
+    <img onClick={props.right} className='w-5 h-5 bg-zinc-400 rounded-xl cursor-pointer' src="./images/Vector (Stroke).png" alt="right_arrow" />
   )
 }
+
+export default ArrowRight
