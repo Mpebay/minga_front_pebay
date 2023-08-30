@@ -25,7 +25,7 @@ getData()
 }, [])
 
   return (
-    <section className='hidden md:flex justify-around md:my-6 bg-pink-400 max-h-screen  m-8 rounded-md'>
+    <section className='hidden md:flex justify-around md:my-6 bg-gradient-to-b from-orange-600 to-orange-500 max-h-screen  m-8 rounded-md'>
       <ArrowLeft left = {prev}/>
       <img className='h-60 -mt-8' src={categories[counter]?.character_photo} alt="character_carousel" />
       <img className='-mt-8 h-60 pb-4' src= {categories[counter]?.cover_photo} alt="poster_carousel" />
